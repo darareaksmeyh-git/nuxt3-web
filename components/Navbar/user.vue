@@ -1,8 +1,11 @@
 <template>
   <div class="relative inline-block">
     <!-- Profile image button -->
-    <button @click.stop="handleClick" class="w-8 h-8 rounded-full overflow-hidden border border-yellow-300">
-      <img :src="user.avatar" alt="Profile" class="w-full h-full object-cover"/>
+    <button
+      @click.stop="openUser = !openUser"
+      class="w-[50px] h-[50px] overflow-hidden"
+    >
+      <img :src="avatarIcon" alt="Profile" class="w-full h-full object-cover" />
     </button>
 
     <!-- Dropdown menu -->
@@ -15,33 +18,78 @@
       leave-to-class="opacity-0 translate-y-1"
     >
       <ul
-        v-show="openLabel === 'user'"
-        class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50"
+        v-show="openUser"
+        class="absolute right-0 top-[50px] w-[260px] bg-white bg-opacity-95 border border-gray-200 space-y-2 rounded-[20px] py-2 px-2 shadow-lg z-50 text-black uppercase"
       >
-        <li class="px-4 py-2 border-b border-gray-100 flex items-center gap-2">
-          <img :src="user?.avatar" alt="Profile" class="w-5 h-5 rounded-full object-cover"/>
-          <div>
-            <p class=" text-gray-500 text-sm font-semibold">{{ user?.name }}</p>
-            <p class="text-xs text-gray-500">{{ user?.email }}</p>
-          </div>
+        <li
+          class="flex justify-start py-2 items-center px-4 rounded-full border hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src="~/assets/icons/icon-user.svg"
+            alt="user-icon"
+            class="w-5 h-5 mr-2"
+          />
+          <span>Trung tâm Tài khoản</span>
         </li>
-        <li class="text-gray-500 px-4 py-2 hover:bg-gray-100 cursor-pointer">
-          Level: {{ user?.level }}
+        <li
+          class="flex justify-start py-2 items-center px-4 rounded-full border hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src="~/assets/icons/icon-home.svg"
+            alt="home-icon"
+            class="w-5 h-5 mr-2"
+          />
+          <span>Trang cá nhân</span>
         </li>
-        <li class="text-gray-500 px-4 py-2 hover:bg-gray-100 cursor-pointer">Settings</li>
-        <li class="text-gray-500 px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500" @click="logout">Logout</li>
+        <li
+          class="flex justify-start py-2 items-center px-4 rounded-full border hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src="~/assets/icons/icon-target.svg"
+            alt="target-icon"
+            class="w-5 h-5 mr-2"
+          />
+          <span>Nhiệm vụ</span>
+        </li>
+        <li
+          class="flex justify-start py-2 items-center px-4 rounded-full border hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src="~/assets/icons/icon-wallet.svg"
+            alt="home-wallet"
+            class="w-5 h-5 mr-2"
+          />
+          <span>Ví của bạn</span>
+        </li>
+        <li
+          class="flex justify-start py-2 items-center px-4 rounded-full border hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src="~/assets/icons/icon-graph.svg"
+            alt="graph-icon"
+            class="w-5 h-5 mr-2"
+          />
+          <span>lịch sử giao dịch</span>
+        </li>
+        <li
+          class="flex justify-start py-2 items-center px-4 rounded-full border hover:bg-gray-100 cursor-pointer"
+          @click="logout"
+        >
+          <img
+            src="~/assets/icons/icon-logout.svg"
+            alt="logout-icon"
+            class="w-5 h-5 mr-2"
+          />
+          <span>Thoát tài khoản</span>
+        </li>
       </ul>
     </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { isLoggedIn, user, logout } from '@/composables/useAuth'
+import avatarIcon from "~/assets/icons/user-avatar.svg";
+import { logout } from "@/composables/useAuth";
 
-const props = defineProps<{ openLabel: string }>()
-const emit = defineEmits<{ (e: 'toggle', label: string): void }>()
-
-function handleClick() {
-  emit('toggle', 'user')
-}
+const openUser = ref(false);
 </script>
