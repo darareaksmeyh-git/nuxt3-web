@@ -12,7 +12,7 @@
 import { ref } from "vue";
 import Dropdown from "./dropdown.vue";
 
-const openDropdown = ref(""); // currently open dropdown
+const openDropdown = ref("");
 
 function handleToggle(label) {
   openDropdown.value = openDropdown.value === label ? "" : label;

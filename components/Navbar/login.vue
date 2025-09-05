@@ -1,7 +1,5 @@
 <template>
-  <!-- Outer wrapper: aligns with navbar items -->
   <div class="relative inline-flex items-center min-h-[3rem] navbar-item">
-    <!-- Floating label: appears only after login -->
     <transition
       enter-active-class="transition duration-200 ease-out"
       enter-from-class="opacity-0 translate-y-1"
@@ -18,7 +16,7 @@
       </div>
     </transition>
 
-    <!-- Buttons / Profile -->
+    <!-- Profile -->
     <div class="flex space-x-2">
       <!-- Before login -->
       <template v-if="!isLoggedIn">
@@ -55,16 +53,14 @@
 
 <script setup lang="ts">
 import { isLoggedIn, login, user } from '@/composables/useAuth'
-import NavbarUser from './user.vue'
 
-// This function is called when user clicks login
-function handleLogin() {
-  login({
-    name: 'John Doe',
-    email: 'john@example.com',
-    level: 5,
-    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYHcZPvy01X61yORcPE1zIvf7xnqkxS0-b8g&s'
-  })
+async function handleLogin() {
+  try {
+    const userData = await $fetch('/api/user')
+    login(userData as { name: string; email: string; level: number; avatar: string })
+  } catch (err) {
+    console.error('Failed to fetch user:', err)
+  }
 }
 const props = defineProps<{ openLabel: string }>()
 const emit = defineEmits<{ (e: 'toggle', label: string): void }>();

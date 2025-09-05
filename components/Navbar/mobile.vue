@@ -1,5 +1,5 @@
 <template>
-  <!-- Burger button (always visible on mobile) -->
+  <!-- Burger button -->
   <div class="flex">
     
     <button
@@ -10,13 +10,13 @@
     </button>
   </div>
 
-  <!-- Full-screen mobile menu -->
+  <!-- Full-screen on mobile menu -->
   <transition name="fade">
     <div
       v-if="isOpenMenu"
       class="fixed inset-0 bg-white z-50 flex flex-col"
     >
-      <!-- Top bar with close button -->
+      <!-- close button -->
       <div class="flex justify-end p-4">
         <button
           @click="isOpenMenu = false"
@@ -42,7 +42,7 @@
             {{ item.label }}
           </button>
 
-          <!-- Sub-items -->
+          <!-- Sub items -->
           <ul v-show="openSubmenus[idx]" class="flex flex-col pl-6 mt-2 space-y-2">
             <li v-for="(sub, sIdx) in item.items" :key="sIdx">
               <a
