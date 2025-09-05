@@ -10,7 +10,6 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import Dropdown from "./dropdown.vue";
 
 const openDropdown = ref("");
 
