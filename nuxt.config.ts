@@ -2,5 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'vue3-carousel-nuxt']
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'vue3-carousel-nuxt',
+    '@nuxt/image'
+  ]
 })
