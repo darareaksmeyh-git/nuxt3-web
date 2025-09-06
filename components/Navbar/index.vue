@@ -19,9 +19,9 @@
       <div
         class="hidden lg:hidden md:block sm:block xs:block col-span-6 sm:col-span-6 xs:col-span-8"
       >
-        <div class="row-span-1 bg-orange-500">
+        <div class="row-span-1 bg-gold-gradient py-2 px-2">
           <div class="flex items-center justify-end">
-            <NavbarLanguage />
+            <NavbarLanguage class="mr-3" />
             <NavbarMobile />
           </div>
         </div>

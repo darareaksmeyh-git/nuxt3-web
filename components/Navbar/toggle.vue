@@ -2,13 +2,13 @@
   <div class="flex items-center">
     <button
       @click="toggleTheme"
-      :class="isDark ? 'bg-yellow-300' : 'bg-gray-800'"
+      :class="isDark ? 'bg-gold' : 'bg-gray-black'"
       class="border-2 border-gold relative w-20 h-10 rounded-full flex items-center px-1 transition-colors duration-300"
     >
       <!-- Toggle circle -->
       <span
         :class="isDark ? 'translate-x-10' : 'translate-x-0'"
-        class="border-2 border-gold absolute w-8 h-8 bg-gray-700 rounded-full shadow-md flex items-center justify-center transform transition-transform duration-300"
+        class="border-2 border-gold absolute w-8 h-8 bg-gray-black rounded-full shadow-md flex items-center justify-center transform transition-transform duration-300"
       >
         <!-- Icon inside circle -->
         <span class="text-xs">

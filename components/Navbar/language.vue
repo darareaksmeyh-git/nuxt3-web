@@ -3,44 +3,32 @@
     <!-- Dropdown label -->
     <button
       @click="open = !open"
-      class="flex items-center pl-1 pr-3 py-1 bg-white rounded-full text-black hover:bg-gray-700 focus:outline-none"
+      class="flex items-center pl-1 pr-3 py-1 bg-white rounded-full text-black hover:bg-gray-black hover:text-gold focus:outline-none"
     >
       <img
         src="~/assets/icons/vietnam.svg"
-        alt="English"
+        alt="vietnam"
         class="w-5 h-5 mr-2"
       />
-      <span>English</span>
+      <span class="uppercase font-semibold">tiếng việt</span>
     </button>
 
     <!-- Dropdown items -->
     <ul
       v-show="open"
-      class="absolute mt-2 w-40 bg-white text-gray-800 rounded-md shadow-lg py-1 z-10"
+      class="absolute mt-2 w-40 bg-white bg-opacity-95 text-gray-800 rounded-[20px] shadow-lg py-2 z-10 space-y-2 px-2"
     >
-      <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-        <img
-          src="~/assets/icons/vietnam.svg"
-          alt="Chinese"
-          class="w-4 h-4 mr-2"
-        />
-        <span>Chinese</span>
-      </li>
-      <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-        <img
-          src="~/assets/icons/vietnam.svg"
-          alt="Khmer"
-          class="w-4 h-4 mr-2"
-        />
+      <li
+        class="flex items-center px-4 py-2 border rounded-full hover:bg-gray-black hover:text-gold cursor-pointer"
+      >
+        <img src="~/assets/icons/khmer.png" alt="khmer" class="w-5 h-5 mr-2" />
         <span>Khmer</span>
       </li>
-      <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-        <img
-          src="~/assets/icons/vietnam.svg"
-          alt="Vietnam"
-          class="w-4 h-4 mr-2"
-        />
-        <span>Vietnam</span>
+      <li
+        class="flex items-center px-4 py-2 border rounded-full hover:bg-gray-black hover:text-gold cursor-pointer"
+      >
+        <img src="~/assets/icons/en.png" alt="english" class="w-5 h-5 mr-2" />
+        <span>English</span>
       </li>
     </ul>
   </div>

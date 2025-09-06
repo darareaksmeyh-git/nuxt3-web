@@ -14,9 +14,9 @@ import { isLoggedIn, login } from "@/composables/useAuth";
     >
       <div
         v-if="isLoggedIn"
-        class="absolute -top-4 left-1/2 transform -translate-x-1/2 text-xs px-2 py-0.5 rounded-full z-10 w-max whitespace-nowrap"
+        class="absolute -top-4 left-1/2 transform -translate-x-1/2 text-xs px-2 py-0.5 rounded-full z-10 w-max whitespace-nowrap sm:text-white xs:text-white md:text-white lg:text-black text-black"
       >
-        Welcome!
+        Xin chào, NguyenVanDen
       </div>
     </transition>
 
